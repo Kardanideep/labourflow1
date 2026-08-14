@@ -9,7 +9,7 @@ export default function Home() {
   const [messageType, setMessageType] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email.trim()) return;
