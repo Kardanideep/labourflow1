@@ -7,34 +7,29 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [messageType, setMessageType] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email.trim()) return;
 
+    setLoading(true);
+
     try {
-      const formData = new FormData();
-
-      formData.append("email", email.trim());
-      formData.append(
-        "access_key",
-        "1e111677-c62f-44aa-9084-43515660fb80"
-      );
-
-      const response = await fetch(
-        "https://api.web3forms.com/submit",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("/api/submit-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      });
 
       const data = await response.json();
 
       if (data.success) {
         setSubmitted(true);
-        setMessageType("new");
+        setMessageType(data.isExisting ? "existing" : "new");
         setEmail("");
 
         setTimeout(() => {
@@ -46,6 +41,8 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error submitting email:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -131,18 +128,21 @@ export default function Home() {
                 onChange={(e) =>
                   setEmail(e.target.value)
                 }
+                disabled={loading}
                 required
               />
             </div>
 
-            <button type="submit">
-              {submitted
+            <button type="submit" disabled={loading || submitted}>
+              {loading
+                ? "Sending..."
+                : submitted
                 ? messageType === "existing"
                   ? "Your email already on list ✓"
                   : "You're on the list ✓"
                 : "Notify me at launch"}
 
-              {!submitted && (
+              {!submitted && !loading && (
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
