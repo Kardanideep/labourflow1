@@ -135,7 +135,7 @@ export default function Home() {
 
             <button type="submit" disabled={loading || submitted}>
               {loading
-                ? "Sending..."
+                ? "Submitting..."
                 : submitted
                 ? messageType === "existing"
                   ? "Your email already on list ✓"

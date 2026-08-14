@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const GOOGLE_SHEET_WEBHOOK_URL =
-  process.env.GOOGLE_SHEET_WEBHOOK_URL;
+const GOOGLE_SHEET_WEBHOOK_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
 
 // --------------------------------------------------
