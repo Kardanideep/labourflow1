@@ -254,10 +254,10 @@ h1 strong {
 }
 
 .hero-description {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 34px 0 25px;
   color: #4b5563;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1.65;
 }
@@ -657,6 +657,63 @@ h1 strong {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(10px, -12px); }
 }
+
+/* Connector lines from cards to orbit ring */
+.visual-card::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(18, 130, 118, 0.35), rgba(18, 130, 118, 0));
+  z-index: 3;
+}
+
+.card-top-left::after {
+  bottom: -38px;
+  left: 30px;
+  height: 38px;
+  transform: rotate(28deg);
+  transform-origin: top;
+}
+
+.card-top-right::after {
+  bottom: -38px;
+  right: 30px;
+  height: 38px;
+  transform: rotate(-28deg);
+  transform-origin: top;
+}
+
+.card-bottom-left::after {
+  top: -38px;
+  left: 30px;
+  height: 38px;
+  transform: rotate(-28deg);
+  transform-origin: bottom;
+}
+
+.card-bottom-right::after {
+  top: -38px;
+  right: 30px;
+  height: 38px;
+  transform: rotate(28deg);
+  transform-origin: bottom;
+}
+
+/* Small dot where the line meets the ring */
+.visual-card::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  z-index: 4;
+}
+
+.card-top-left::before { bottom: -42px; left: 26px; }
+.card-top-right::before { bottom: -42px; right: 26px; }
+.card-bottom-left::before { top: -42px; left: 26px; }
+.card-bottom-right::before { top: -42px; right: 26px; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1050px) {
