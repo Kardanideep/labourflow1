@@ -89,9 +89,16 @@ input {
   margin-top: 20px;
 }
 
+.vertical-line{
+  width: 1px;
+  height: auto;
+  background-color: #0b223f;
+  margin: 0 5px;
+}
+
 .brand img {
   display: block;
-  width: 100px;
+  width: 50px;
   height: auto;
 }
 
@@ -186,6 +193,11 @@ input {
     margin-top: -25px;
 }
 
+.logo-section{
+  display: flex;
+  flex-direction: row;
+}
+
 .brand-section {
     display: flex;
     flex-direction: column;
@@ -213,11 +225,11 @@ input {
 
 .tagline {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 400;
     color: #252147;
     letter-spacing: 2px;
-    margin-top: -34px;
+    margin-top: -20px;
     text-transform: UPPERCASE;
 }
 
@@ -342,7 +354,7 @@ h1 strong {
   outline: 0;
   background: transparent;
   color: var(--navy);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .input-wrap input::placeholder {
@@ -485,12 +497,12 @@ h1 strong {
   backdrop-filter: blur(15px);
   box-shadow: 0 18px 40px rgba(11, 34, 63, 0.07);
   border-radius: 14px;
-  z-index: 5;
+  z-index: 50;
 }
 
 .visual-card span {
   color: #0b2d3a;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
 }
@@ -537,8 +549,8 @@ h1 strong {
 .dot-one {
   width: 9px;
   height: 9px;
-  top: 85px;
-  left: 130px;
+  top: 80px;
+  left: 200px;
   background: var(--green);
   animation: dotFloatOne 4s ease-in-out infinite;
 }
@@ -573,8 +585,8 @@ h1 strong {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  color: #3f4142;
-  font-size: 13px;
+  color: #0F2340;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -650,7 +662,6 @@ h1 strong {
 @media (max-width: 1050px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 55px;
     padding-bottom: 100px;
     gap: 40px;
   }
@@ -687,11 +698,12 @@ h1 strong {
     width: calc(100% - 34px);
   }
   .topbar {
-    height: 82px;
+    flex-direction: column;
+    height: 110px;
     gap: 8px;
   }
   .brand img {
-    width: 80px;
+    width: 50px;
   }
 
   .hero {
@@ -701,6 +713,19 @@ h1 strong {
     gap: 24px;
     min-height: auto;
   }
+
+  .brandname{
+    font-size: 23px;
+  }
+
+  .tagline{
+    font-size: 10px;
+  }
+  
+  .logo-section{
+    margin-top: 15px;
+  }
+
   .eyebrow {
     font-size: 13px;
     gap: 8px;
@@ -738,7 +763,7 @@ h1 strong {
     height: 16px;
   }
   .input-wrap input {
-    font-size: 13px;
+    font-size: 15px;
   }
   .waitlist button {
     width: 100%;
@@ -801,7 +826,7 @@ h1 strong {
     gap: 2px;
   }
   .visual-card span {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.12em;
   }
   .visual-card strong {
@@ -854,7 +879,7 @@ h1 strong {
     justify-content: space-between;
     gap: 8px;
     flex-wrap: wrap;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.10em;
     margin: 0 auto 20px;
     padding: 0 2px;
@@ -875,12 +900,12 @@ h1 strong {
     width: calc(100% - 20px);
   }
   .topbar {
-    height: 68px;
+    height: 110px;
     gap: 4px;
   }
 
   .brand img {
-    width: 60px;
+    width: 45px;
   }
 
   /* Brand is handled by clamp() – no hard overrides needed */
@@ -893,7 +918,7 @@ h1 strong {
   .eyebrow {
     font-size: 11px;
     gap: 6px;
-    margin-bottom: 12px;
+    margin: 12px 0;
     letter-spacing: 0.14em;
   }
   .eyebrow span {
@@ -909,16 +934,24 @@ h1 strong {
     line-height: 1.55;
   }
 
-   .brandname {
+  .brandname {
     margin-top: 5px;
     gap: 0.15rem;
-    font-size: 26px;
+    font-size: 18px;
+  }
+
+  .logo-section{
+    margin-top: 10px;
   }
 
   .tagline {
     font-size: 8px;
     letter-spacing: 0.2em;
-    margin-top: -25px;
+    margin-top: -15px;
+  }
+
+  .topbar{
+    flex-direction: column;
   }
 
   .launch-label {
@@ -946,7 +979,7 @@ h1 strong {
     height: 14px;
   }
   .input-wrap input {
-    font-size: 12px;
+    font-size: 15px;
   }
   .waitlist button {
     min-height: 38px;
@@ -1006,7 +1039,7 @@ h1 strong {
     gap: 1px;
   }
   .visual-card span {
-    font-size: 6.5px;
+    font-size: 8px;
     letter-spacing: 0.10em;
   }
   .visual-card strong {
@@ -1055,7 +1088,7 @@ h1 strong {
   }
 
   .footer {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.08em;
     gap: 6px;
     margin: 0 auto 14px;
@@ -1114,7 +1147,7 @@ h1 strong {
 @media (min-width: 600px) {
   .brandname {
     gap: 0.15rem;
-    font-size: 35px;
+    font-size: 25px;
   }
 
   .tagline {

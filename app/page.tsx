@@ -55,20 +55,30 @@ export default function Home() {
 
       {/* Top bar */}
       <header className="topbar">
-        <a href="/" className="brand">
-          <img src="/logo.png" alt="LabourFlow" />
-        </a>
+        <div className="logo-section">
+          <a href="/" className="brand">
+            <img src="/logo.png" alt="LabourFlow" />
+          </a>
 
-        <div className="brand-section">
-          <div className="brandname">
-            <p className="labour">Labour</p>
-            <p className="flow">Flow</p>
+          <span className="vertical-line" />
+
+          <div className="brand-section">
+            <div className="brandname">
+              <p className="labour">Labour</p>
+              <p className="flow">Flow</p>
+            </div>
+
+            <p className="tagline">
+              COMPLIANCE. SIMPLIFIED.
+            </p>
           </div>
-
-          <p className="tagline">
-            COMPLIANCE. SIMPLIFIED.
-          </p>
         </div>
+
+        <div className="eyebrow">
+          <span />
+          SOMETHING NEW IS BEING BUILT
+        </div>
+
       </header>
 
       {/* Main */}
@@ -76,12 +86,6 @@ export default function Home() {
 
         {/* Left content */}
         <div className="hero-content">
-
-          <div className="eyebrow">
-            <span />
-            SOMETHING NEW IS BEING BUILT
-          </div>
-
           <h1>
             Compliance
             <br />
@@ -137,10 +141,10 @@ export default function Home() {
               {loading
                 ? "Submitting..."
                 : submitted
-                ? messageType === "existing"
-                  ? "Your email already on list ✓"
-                  : "You're on the list ✓"
-                : "Notify me at launch"}
+                  ? messageType === "existing"
+                    ? "Your email already on list ✓"
+                    : "You're on the list ✓"
+                  : "Join the waitlist"}
 
               {!submitted && !loading && (
                 <svg
@@ -172,7 +176,7 @@ export default function Home() {
 
           <div className="visual-logo">
             <img
-              src="/logo2.png"
+              src="/logo.png"
               alt=""
             />
           </div>
@@ -194,7 +198,7 @@ export default function Home() {
 
           <div className="visual-card card-bottom-right">
             <span>DEADLINES</span>
-            <strong>0</strong>
+            <strong>0 missed</strong>
           </div>
 
           <div className="floating-dot dot-one" />
@@ -224,7 +228,7 @@ export default function Home() {
             aria-label="Instagram"
             className="social-link"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="28" height="28">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="20" height="20">
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="5" />
               <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
@@ -239,7 +243,7 @@ export default function Home() {
             aria-label="LinkedIn"
             className="social-link"
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
               <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z" />
             </svg>
           </a>
