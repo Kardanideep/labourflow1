@@ -1,0 +1,23 @@
+{
+  "eyebrow": "WHO IT'S FOR",
+  "title": "Built for professionals who manage labour compliance for multiple businesses.",
+  "description": "Whether you work independently or as part of a growing consultancy, LabourFlow helps you manage clients, compliance, payroll, documents and team operations from one platform.",
+  "items": [
+    {
+      "title": "Labour Law Consultants",
+      "description": "Manage multiple client companies, branches, employees, compliance deadlines, documents and statutory work from one organized workspace."
+    },
+    {
+      "title": "Labour Compliance Firms",
+      "description": "Standardize client workflows, assign responsibilities and give your team clear visibility across compliance work, documents and deadlines."
+    },
+    {
+      "title": "Payroll & Statutory Consultants",
+      "description": "Manage attendance, payroll calculations, PF, ESI, PT, LWF, payslips, statutory outputs and recurring client requirements in one workflow."
+    },
+    {
+      "title": "Multi-Client Consultancy Teams",
+      "description": "Coordinate consultants and staff across a growing client portfolio with role-based access, task management, reminders and centralized records."
+    }
+  ]
+}

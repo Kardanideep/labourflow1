@@ -1,0 +1,47 @@
+{
+  "eyebrow": "WHY LABOURFLOW",
+  "title": "Built specifically for the way labour consultancies operate.",
+  "description": "LabourFlow is not a generic HRMS or payroll tool. It is designed around the multi-client workflow, statutory requirements and daily operations of Indian labour law consultancies.",
+  "items": [
+    {
+      "number": "01",
+      "title": "Consultant-First",
+      "description": "Built for labour law consultants managing compliance for multiple client companies — not for a single company's internal HR team."
+    },
+    {
+      "number": "02",
+      "title": "Multi-Client by Design",
+      "description": "Manage your entire client portfolio from one workspace, switch between clients quickly and keep each company's data, compliance and documents organized."
+    },
+    {
+      "number": "03",
+      "title": "Deep Indian Compliance",
+      "description": "Designed around Indian labour compliance including PF, ESI, PT, minimum wages, factory licences and other statutory requirements."
+    },
+    {
+      "number": "04",
+      "title": "Government-Ready Workflows",
+      "description": "Generate compliance outputs such as ECR files, ESI challans and PT returns in workflows designed around Indian government filing requirements."
+    },
+    {
+      "number": "05",
+      "title": "Automation Built In",
+      "description": "Automate recurring reminders, document expiry alerts, attendance requests, client communication and other repetitive consultancy work."
+    },
+    {
+      "number": "06",
+      "title": "AI-Ready Platform",
+      "description": "Designed to support AI-powered notice reading, compliance queries, document classification, risk alerts and proactive compliance assistance."
+    },
+    {
+      "number": "07",
+      "title": "Designed to Scale",
+      "description": "Move from spreadsheets and disconnected tools to a structured platform that supports growing client portfolios, teams and multi-branch operations."
+    },
+    {
+      "number": "08",
+      "title": "Affordable for Growing Consultancies",
+      "description": "Built for growing consultancy practices with a flat subscription approach rather than increasing costs with every client you add."
+    }
+  ]
+}

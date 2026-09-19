@@ -1,0 +1,127 @@
+{
+  "eyebrow": "HOW LABOURFLOW WORKS",
+  "title": "One connected workflow for your entire consultancy.",
+  "description": "From setting up your consultancy and team to managing clients, compliance, payroll, documents and statutory work, LabourFlow brings your daily operations into one connected flow.",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Set Up Consultancy & Team",
+      "shortDescription": "Set up your consultancy, team members and access permissions.",
+      "description": "Create your consultancy account, add firm details and branding, then invite managers, executives and HR staff with role-based access and module permissions.",
+      "rightTitle": "Key setup features",
+      "highlights": [
+        "Consultancy profile & branding",
+        "Team members & roles",
+        "Module-level permissions"
+      ]
+    },
+    {
+      "number": "02",
+      "title": "Client Management",
+      "shortDescription": "Manage companies, branches and client information from one workspace.",
+      "description": "Add client companies, branches and contact details to one centralized workspace with smart search and organized records.",
+      "rightTitle": "Client management",
+      "highlights": [
+        "Companies & branches",
+        "Contacts & employee rosters",
+        "Searchable client records"
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Documents & Records",
+      "shortDescription": "Organize important client documents and track their expiry dates.",
+      "description": "Upload GST, PAN, licences, agreements and other client records with expiry dates, version history and fast search, ready for renewal reminders.",
+      "rightTitle": "Document management",
+      "highlights": [
+        "Licences & certificates",
+        "Expiry & renewal tracking",
+        "Version history & search"
+      ]
+    },
+    {
+      "number": "04",
+      "title": "Compliance Configuration",
+      "shortDescription": "Configure the labour laws and requirements applicable to each client.",
+      "description": "Configure the labour laws and statutory requirements that apply to each client based on their industry, establishment and workforce.",
+      "rightTitle": "Compliance setup",
+      "highlights": [
+        "PF, ESI, PT & LWF",
+        "Minimum Wages requirements",
+        "Bonus, Gratuity & state rules"
+      ]
+    },
+    {
+      "number": "05",
+      "title": "Compliance Calendar & Tasks",
+      "shortDescription": "Track recurring compliance deadlines and assign work to your team.",
+      "description": "Automatically organize PF, ESI, PT, LWF, returns and licence renewals for every client, then assign each deadline to the right consultant or staff member.",
+      "rightTitle": "Compliance workflow",
+      "highlights": [
+        "Recurring deadlines",
+        "Task assignment",
+        "Pending & overdue tracking"
+      ]
+    },
+    {
+      "number": "06",
+      "title": "Employee Management",
+      "shortDescription": "Maintain employee records and workforce information for every client.",
+      "description": "Maintain employee records including UAN, ESIC details, salary structure, bank details and other workforce data for each client.",
+      "rightTitle": "Employee records",
+      "highlights": [
+        "Employee profiles & UAN",
+        "ESIC & salary details",
+        "Bank & workforce information"
+      ]
+    },
+    {
+      "number": "07",
+      "title": "Payroll Processing",
+      "shortDescription": "Process attendance, payroll and required statutory calculations.",
+      "description": "Upload attendance, calculate salaries and process PF, ESI, PT, LWF, bonus and gratuity with the required statutory calculations.",
+      "rightTitle": "Payroll processing",
+      "highlights": [
+        "Attendance & salary processing",
+        "PF, ESI, PT & LWF",
+        "Bonus & gratuity calculations"
+      ]
+    },
+    {
+      "number": "08",
+      "title": "Statutory Outputs",
+      "shortDescription": "Generate payslips, challans, ECR files and compliance reports.",
+      "description": "Generate payslips, PF ECR files, ESI outputs, PT challans and other statutory reports required for client compliance.",
+      "rightTitle": "Statutory outputs",
+      "highlights": [
+        "Payslips",
+        "PF ECR & ESI outputs",
+        "PT challans & reports"
+      ]
+    },
+    {
+      "number": "09",
+      "title": "Client Portal",
+      "shortDescription": "Give clients a secure space to access compliance information and submit documents.",
+      "description": "Share reports and compliance status with clients through a secure web and mobile-friendly space where they can upload documents and check deadlines.",
+      "rightTitle": "Client self-service",
+      "highlights": [
+        "Compliance status & reports",
+        "Document uploads",
+        "Web & mobile-friendly access"
+      ]
+    },
+    {
+      "number": "10",
+      "title": "Notices & Reminders",
+      "shortDescription": "Track notices, renewals and expiries with timely client reminders.",
+      "description": "Track government notices, reply deadlines, licence renewals and document expiries while sending timely WhatsApp and email reminders.",
+      "rightTitle": "Notices & reminders",
+      "highlights": [
+        "Government notices & deadlines",
+        "Renewal & expiry alerts",
+        "WhatsApp & email reminders"
+      ]
+    }
+  ]
+}

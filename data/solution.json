@@ -1,0 +1,67 @@
+{
+  "eyebrow": "ONE PLATFORM. ONE SOLUTION.",
+  "title": "Everything your labour consultancy needs to manage clients and compliance.",
+  "description": "From client onboarding and compliance tracking to payroll, documents, notices and client communication, LabourFlow brings your consultancy workflow into one connected platform.",
+  "items": [
+    {
+      "icon": "building",
+      "title": "Client Management",
+      "description": "Manage client companies, branches and employee rosters from one centralized, searchable workspace.",
+      "image": "/Client-Management.webp"
+    },
+    {
+      "icon": "shield",
+      "title": "Compliance Configuration",
+      "description": "Configure applicable labour laws and statutory requirements for each client based on their industry and workforce.",
+      "image": "/Compliance-Configuration.webp"
+    },
+    {
+      "icon": "calendar",
+      "title": "Compliance Calendar",
+      "description": "Track PF, ESI, PT, LWF, returns, licence renewals and recurring obligations with deadlines and responsibilities.",
+      "image": "/Compliance-Calendar.webp"
+    },
+    {
+      "icon": "chart",
+      "title": "Payroll & Statutory Calculations",
+      "description": "Process attendance and payroll with PF, ESI, PT, LWF, bonus and gratuity calculations, plus statutory outputs.",
+      "image": "/Payroll.webp"
+    },
+    {
+      "icon": "file",
+      "title": "Document Vault",
+      "description": "Organize licences, agreements, certificates and client records with expiry tracking, version history and search.",
+      "image": "/Document-Vault.webp"
+    },
+    {
+      "icon": "bell",
+      "title": "Notices & Reminders",
+      "description": "Track government notices, reply deadlines and requirements while sending automated WhatsApp and email reminders.",
+      "image": "/Notices-Reminders.webp"
+    },
+    {
+      "icon": "shield",
+      "title": "Inspection-Ready Records",
+      "description": "Pull together documents, registers, returns and compliance history for any client in one click when an inspector or notice arrives.",
+      "image": "/Inspection-Ready.webp"
+    },
+    {
+      "icon": "users",
+      "title": "Client Portal",
+      "description": "Give clients a secure space to upload documents, view compliance status, check due dates and access reports.",
+      "image": "/Client-Portal.webp"
+    },
+    {
+      "icon": "list",
+      "title": "Tasks & Team Workflow",
+      "description": "Assign work to consultants and staff, track progress and maintain clear visibility across your consultancy.",
+      "image": "/Tasks-Team-Workflow.webp"
+    },
+    {
+      "icon": "shield",
+      "title": "Advanced Security & Privacy",
+      "description": "Protect sensitive client and employee data with role-based access, secure storage and controlled user permissions.",
+      "image": "/Advanced-Security.webp"
+    }
+  ]
+}

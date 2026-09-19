@@ -1,0 +1,39 @@
+{
+  "eyebrow": "THE PROBLEM",
+  "title": "Managing multiple clients means managing multiple disconnected workflows.",
+  "description": "As a labour law consultancy grows, client data, compliance work, documents, payroll and follow-ups become harder to manage across disconnected tools.",
+  "items": [
+    {
+      "title": "Client data is scattered",
+      "description": "Client details, employee records, UAN/ESIC information and other records are spread across Excel sheets, folders and physical files."
+    },
+    {
+      "title": "Compliance deadlines are hard to track",
+      "description": "PF, ESI, PT, LWF, returns, licence renewals and other recurring obligations require constant tracking across multiple clients."
+    },
+    {
+      "title": "Applicability is difficult to manage",
+      "description": "Different clients have different registrations, employee counts, industries and compliance requirements, making applicability harder to track manually."
+    },
+    {
+      "title": "Document management becomes chaotic",
+      "description": "Licences, certificates, returns and client documents are stored across folders, making search, expiry tracking and version history difficult."
+    },
+    {
+      "title": "Client follow-ups consume time",
+      "description": "Teams repeatedly chase clients for attendance, documents, approvals and other information through WhatsApp, email and calls."
+    },
+    {
+      "title": "Payroll work is repetitive",
+      "description": "Attendance, salary calculations, PF, ESI, PT, deductions and statutory records create recurring manual work across multiple clients."
+    },
+    {
+      "title": "Team work lacks visibility",
+      "description": "When several employees handle different clients, assigning work and knowing what is pending, completed or overdue becomes difficult."
+    },
+    {
+      "title": "Inspections create last-minute pressure",
+      "description": "When a notice or inspection arrives, finding the right documents, records and compliance history quickly can become a major challenge."
+    }
+  ]
+}

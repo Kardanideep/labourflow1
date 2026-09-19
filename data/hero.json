@@ -1,0 +1,23 @@
+{
+  "eyebrow": "BUILT FOR LABOUR LAW CONSULTANTS",
+  "titleLine1": "Manage every client in one place.",
+  "titleLine2": "Stay ahead of compliance.",
+  "description": "LabourFlow brings client management, compliance deadlines, documents, tasks, payroll and client communication into one platform built for labour law consultancies.",
+  "primaryCta": "Explore LabourFlow",
+  "secondaryCta": "Get Launch Updates",
+  "trust": "Built around Indian labour compliance workflows",
+  "metrics": [
+    {
+      "label": "Clients",
+      "value": "Multi-client"
+    },
+    {
+      "label": "Compliance",
+      "value": "Centralized"
+    },
+    {
+      "label": "Workflow",
+      "value": "Connected"
+    }
+  ]
+}

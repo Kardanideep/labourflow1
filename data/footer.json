@@ -1,0 +1,16 @@
+{
+  "description": "The operating system for labour law consultants.",
+  "copyright": "LabourFlow",
+  "social": [
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/labourflow.in/",
+      "icon": "instagram"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/company/the-labourflow",
+      "icon": "linkedin"
+    }
+  ]
+}
