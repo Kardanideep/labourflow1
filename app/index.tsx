@@ -2,8 +2,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
-import ProductPreview from "@/components/ProductPreview";
 import HowItWorks from "@/components/HowItWorks";
+import Modules from "@/components/Modules";
 import Audience from "@/components/Audience";
 import Why from "@/components/Why";
 import CTA from "@/components/CTA";
@@ -16,12 +16,12 @@ export default function LabourFlowHome() {
       <Navbar />
       <main>
         <Hero />
-        <Why />
         <Problem />
-        <Solution />
-        <HowItWorks />
-        <ProductPreview />
         <Audience />
+        <Solution />
+        <Modules />
+        <HowItWorks />
+        <Why />
         <CTA />
       </main>
       <Footer />

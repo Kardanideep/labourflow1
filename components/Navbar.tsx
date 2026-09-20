@@ -32,20 +32,20 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-[#f7faf9]/90 backdrop-blur-xl">
+    <header className="relative sticky top-0 z-50 border-b border-slate-200/70 bg-[#f7faf9]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3">
           <img
             src="/logo.png"
             alt="LabourFlow"
-            className="h-9 w-9 object-contain sm:h-11 sm:w-11"
+            className="h-10 w-10 object-contain sm:h-12 sm:w-12"
           />
           <span className="min-w-0">
-            <span className="block text-lg font-extrabold leading-none tracking-tight text-[#0b223f] sm:text-xl">
-              Labour<span className="text-[#128276]">Flow</span>
+            <span className="block text-lg font-extrabold leading-none tracking-tight text-[#0B1F3A] sm:text-[25px]">
+              Labour<span className="text-[#0F7A6C]">Flow</span>
             </span>
-            <span className="mt-1 block text-[7px] font-bold tracking-[0.2em] text-[#0b223f] sm:text-[8px]">
+            <span className="mt-1 block text-[7px] font-bold tracking-[0.2em] text-[#0B1F3A] sm:text-[9px]">
               COMPLIANCE. SIMPLIFIED.
             </span>
           </span>
@@ -95,7 +95,7 @@ export default function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="border-t border-slate-200 bg-white px-4 py-4 sm:px-6 md:hidden"
+          className="absolute left-0 right-0 top-full border-t border-slate-200 bg-white px-4 py-4 shadow-lg sm:px-6 md:hidden"
         >
           <div className="flex flex-col gap-1">
             <a
@@ -118,13 +118,6 @@ export default function Navbar() {
               className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
             >
               Who it's for
-            </a>
-            <a
-              onClick={() => setOpen(false)}
-              href="#roadmap"
-              className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
-            >
-              Roadmap
             </a>
 
             <a

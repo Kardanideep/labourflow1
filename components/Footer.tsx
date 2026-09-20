@@ -7,10 +7,11 @@ export default function Footer() {
       <div className="overflow-hidden bg-[#0b223f] text-white">
         {/* Main Footer */}
         <div className="grid gap-8 px-5 py-10 sm:gap-10 sm:px-8 sm:py-12 md:px-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-12">
+          
           {/* Brand */}
-          <div>
-            <a href="/" className="inline-flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white p-1.5 shadow-sm sm:h-11 sm:w-11">
+          <div >
+            <a href="/" className="inline-flex items-center gap-2 rounded-xl bg-white p-1.5 shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center sm:h-11 sm:w-11">
                 <img
                   src="/logo.png"
                   alt="LabourFlow"
@@ -18,12 +19,14 @@ export default function Footer() {
                 />
               </div>
 
-              <div className="min-w-0">
-                <p className="text-lg font-extrabold tracking-tight sm:text-xl">
-                  Labour<span className="text-[#8ed6ca]">Flow</span>
+              <div className="min-w-0 pr-1.5">
+                {/* Brand Name */}
+                <p className="text-lg font-extrabold tracking-tight sm:text-[24px]">
+                  <span className="text-[#0B1F3A]">Labour</span>
+                  <span className="text-[#0F7A6C]">Flow</span>
                 </p>
 
-                <p className="mt-0.5 text-[9px] font-bold tracking-[0.2em] text-white/40">
+                <p className="-mt-0.5 text-[8px] font-bold tracking-[0.2em] text-[#0B1F3A]">
                   COMPLIANCE. SIMPLIFIED.
                 </p>
               </div>
@@ -56,9 +59,13 @@ export default function Footer() {
                   "
                 >
                   {s.icon === "instagram" ? (
-                    <span className="text-[11px] font-extrabold">IG</span>
+                    <span className="text-[11px] font-extrabold">
+                      IG
+                    </span>
                   ) : (
-                    <span className="text-xs font-extrabold">in</span>
+                    <span className="text-xs font-extrabold">
+                      in
+                    </span>
                   )}
                 </a>
               ))}
@@ -97,7 +104,7 @@ export default function Footer() {
                 href="#early-access"
                 className="block text-sm text-white/60 transition hover:text-white"
               >
-                Early Access
+                Get Launch Updates
               </a>
             </div>
           </div>
@@ -153,7 +160,7 @@ export default function Footer() {
                 hover:bg-[#159688]
               "
             >
-              Join Early Access
+              Get Launch Updates
               <Icon name="arrow" className="ml-2" />
             </a>
           </div>
@@ -166,7 +173,9 @@ export default function Footer() {
               © {new Date().getFullYear()} {data.copyright}
             </span>
 
-            <span className="font-medium">labourflow.in</span>
+            <span className="font-medium">
+              labourflow.in
+            </span>
           </div>
         </div>
       </div>

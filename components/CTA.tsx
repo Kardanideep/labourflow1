@@ -7,6 +7,7 @@ import Icon from "./Icon";
 export default function CTA() {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -25,7 +26,7 @@ export default function CTA() {
     setError("");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!form.name.trim()) {
@@ -53,10 +54,27 @@ export default function CTA() {
       return;
     }
 
-    // Connect your API here later.
-    console.log("Early access request:", form);
+    setIsSubmitting(true);
 
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/submit-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        setError(result.message || "Unable to send your request right now.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Unable to send your request right now. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const closeModal = () => {
@@ -100,17 +118,17 @@ export default function CTA() {
             {/* Left */}
             <div className="max-w-2xl">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#128276] sm:text-[11px]">
-                LABOURFLOW · COMING SOON
+                LABOURFLOW · IN DEVELOPMENT
               </p>
 
               <h2 className="mt-3 text-xl font-extrabold tracking-tight text-[#0b223f] sm:text-2xl md:text-3xl lg:text-4xl">
-                A simpler way to manage your labour consultancy.
+                Everything your labour consultancy runs on — in one place.
               </h2>
 
               <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
-                LabourFlow is currently under development. We are building one
-                connected platform for client management, compliance, payroll,
-                documents and consultancy workflows.
+                One platform for clients, compliance, payroll and renewals —
+                built for the way Indian labour consultants actually work. Get
+                notified when we launch.
               </p>
             </div>
 
@@ -213,7 +231,7 @@ export default function CTA() {
                 {/* Modal header */}
                 <div className="bg-[#0b223f] px-6 py-7 text-white sm:px-9 sm:py-8">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8ed6ca] sm:text-xs">
-                    EARLY ACCESS
+                    Get Launch Updates
                   </p>
 
                   <h3 className="mt-3 text-xl font-extrabold sm:text-2xl md:text-3xl">
@@ -222,7 +240,7 @@ export default function CTA() {
 
                   <p className="mt-3 max-w-md text-sm leading-6 text-white/60">
                     Tell us a little about yourself and we'll keep you informed
-                    about LabourFlow early access.
+                    about LabourFlow launch updates.
                   </p>
                 </div>
 
@@ -244,6 +262,8 @@ export default function CTA() {
                       id="name"
                       name="name"
                       type="text"
+                      autoComplete="name"
+                      disabled={isSubmitting}
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Enter your full name"
@@ -281,6 +301,8 @@ export default function CTA() {
                       id="email"
                       name="email"
                       type="email"
+                      autoComplete="email"
+                      disabled={isSubmitting}
                       value={form.email}
                       onChange={handleChange}
                       placeholder="you@example.com"
@@ -324,7 +346,9 @@ export default function CTA() {
                         name="phone"
                         type="tel"
                         inputMode="numeric"
+                        autoComplete="tel"
                         maxLength={10}
+                        disabled={isSubmitting}
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="9876543210"
@@ -353,7 +377,13 @@ export default function CTA() {
 
                   {/* Error */}
                   {error && (
-                    <div className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
+                    <div
+                      role="alert"
+                      className="flex items-start gap-3 rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm font-medium text-red-700"
+                    >
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-xs font-bold">
+                        !
+                      </span>
                       {error}
                     </div>
                   )}
@@ -361,6 +391,8 @@ export default function CTA() {
                   {/* Submit */}
                   <button
                     type="submit"
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
                     className="
                       flex
                       w-full
@@ -374,15 +406,26 @@ export default function CTA() {
                       text-white
                       transition
                       hover:bg-[#159688]
+                      disabled:cursor-not-allowed
+                      disabled:opacity-60
                     "
                   >
-                    Join Early Access
-                    <Icon name="arrow" className="ml-2" />
+                    {isSubmitting ? (
+                      <>
+                        <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white/35 border-t-white" />
+                        Sending request...
+                      </>
+                    ) : (
+                      <>
+                        Submit request
+                        <Icon name="arrow" className="ml-2" />
+                      </>
+                    )}
                   </button>
 
                   <p className="text-center text-xs leading-5 text-slate-400">
                     By submitting, you agree to be contacted regarding
-                    LabourFlow early access.
+                    LabourFlow launch updates.
                   </p>
                 </form>
               </>
@@ -395,13 +438,18 @@ export default function CTA() {
                   <Icon name="success" className="text-xl sm:text-2xl" />
                 </div>
 
-                <h3 className="mt-5 text-xl font-extrabold text-[#0b223f] sm:mt-6 sm:text-2xl">
-                  You're on the list!
+                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#128276]">
+                  Request received
+                </p>
+
+                <h3 className="mt-2 text-xl font-extrabold text-[#0b223f] sm:text-2xl">
+                  Welcome to LabourFlow
                 </h3>
 
                 <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-slate-600">
-                  Thanks for your interest in LabourFlow. We'll keep you updated
-                  about early access and upcoming releases.
+                  Thanks for your interest. We sent a confirmation to{" "}
+                  <span className="font-semibold text-[#0b223f]">{form.email}</span>{" "}
+                  and will keep you updated about early access.
                 </p>
 
                 <button

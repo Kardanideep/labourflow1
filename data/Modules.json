@@ -1,0 +1,90 @@
+{
+  "eyebrow": "CORE MODULES",
+  "title": "Everything your labour consultancy needs, connected in one platform.",
+  "description": "LabourFlow brings client management, compliance, payroll, documents, notices, team workflows and client communication together in one platform built specifically for labour law consultants managing multiple clients.",
+
+  "modules": [
+    {
+      "number": "01",
+      "icon": "building",
+      "title": "Client Management",
+      "description": "Manage unlimited client companies and branches from one centralized workspace. Maintain employee rosters with UAN, ESIC, bank and salary details, configure compliance applicability, track licence and DSC expiries, and find clients, employees and documents with smart search."
+    },
+    {
+      "number": "02",
+      "icon": "shield",
+      "title": "Compliance Management",
+      "description": "Configure the labour laws and statutory requirements that apply to each client, including PF, ESI, PT, LWF, minimum wages, bonus, gratuity, contract labour, Shops & Establishments and factory-related requirements. Set filing frequencies, assign responsibility and track compliance obligations."
+    },
+
+    {
+      "number": "03",
+      "icon": "calendar",
+      "title": "Compliance Calendar",
+      "description": "Keep every client's statutory deadlines in one calendar. Track PF, ESI, PT, LWF, returns, bonus, licence renewals and other recurring obligations with assigned responsibilities and automatic deadline reminders."
+    },
+
+    {
+      "number": "04",
+      "icon": "chart",
+      "title": "Payroll & Statutory Calculations",
+      "description": "Automate attendance and payroll processing from Excel, biometric data or manual entry. Calculate salary, overtime, PF, ESI, PT, LWF, bonus and gratuity, then generate password-protected payslips, PF ECR files, ESI challans and state-wise PT challans."
+    },
+
+    {
+      "number": "05",
+      "icon": "file",
+      "title": "Document Management",
+      "description": "Store GST, PAN, factory licences, labour licences, DSCs, agreements, trade licences and other client documents in a secure digital vault. Track expiry dates, maintain version history, search across documents and export complete client records in bulk."
+    },
+
+    {
+      "number": "06",
+      "icon": "bell",
+      "title": "Notices & Reminders",
+      "description": "Manage government notices from receipt to response. Track reply deadlines, penalties, required documents and notice history, with escalation alerts and automated WhatsApp and email reminders for compliance deadlines and document renewals."
+    },
+
+    {
+      "number": "07",
+      "icon": "list",
+      "title": "Task & Team Management",
+      "description": "Assign client and compliance work to managers, executives and HR staff with role-based permissions. Track tasks, priorities, due dates and completion while maintaining clear responsibility and an activity trail across the consultancy."
+    },
+
+    {
+      "number": "08",
+      "icon": "users",
+      "title": "Client Portal",
+      "description": "Give each client a secure, branded portal to view live compliance status and upcoming due dates, upload GST, PAN and licence documents, receive WhatsApp and email notifications, and download monthly reports, PF/ESI challans and audit-ready records."
+    },
+
+    {
+      "number": "09",
+      "icon": "users",
+      "title": "Security & Role-Based Access",
+      "description": "Control what each person can access with dedicated Owner, Manager, Executive, HR and Client roles. Assign module permissions for clients, compliance, payroll, documents, reports and client portal access while keeping sensitive information restricted."
+    },
+
+    {
+      "number": "10",
+      "icon": "chart",
+      "title": "Reports & Compliance Dashboard",
+      "description": "Get centralized visibility into client compliance, pending work, statutory filings and reports. Generate PF, ESI, PT and compliance reports and share them directly with clients, with advanced reporting planned as the platform expands."
+    },
+
+    {
+      "number": "11",
+      "icon": "arrow",
+      "title": "Communication & Automation",
+      "description": "Automate recurring client communication and compliance follow-ups with WhatsApp and email reminders for deadlines, attendance requests and document renewals."
+    },
+
+    {
+      "number": "12",
+      "icon": "search",
+      "title": "AI Compliance Assistant",
+      "description": "Planned AI capabilities will help consultants ask compliance questions in natural language, search client data, read government notices and surface potential compliance risks."
+    }
+  ]
+}

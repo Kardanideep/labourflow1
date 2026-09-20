@@ -14,7 +14,7 @@ const icons = [
 
 export default function Why() {
   return (
-    <section className="bg-[#f7faf9] py-14 sm:py-20">
+    <section className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="overflow-hidden rounded-[1.75rem] bg-[#0b223f] sm:rounded-[2.5rem]">
           <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
@@ -76,14 +76,14 @@ export default function Why() {
             {/* =========================
                 RIGHT — SCROLLABLE
             ========================== */}
-            <div className="bg-white p-4 sm:p-6 lg:p-8">
+            <div className="bg-[#f8faf9] p-4 sm:p-6 lg:p-8">
               <div
                 className="
                   max-h-[520px]
                   overflow-y-auto
                   pr-2
                   sm:max-h-[600px]
-                  lg:max-h-[700px]
+                  lg:max-h-[750px]
                   scrollbar-thin
                   scrollbar-track-transparent
                   scrollbar-thumb-[#128276]/40
@@ -106,7 +106,7 @@ export default function Why() {
                         transition-all
                         duration-300
                         hover:border-[#128276]/20
-                        hover:bg-[#f7faf9]
+                        hover:bg-white
                         sm:gap-5
                         sm:p-5
                       "
@@ -146,10 +146,10 @@ export default function Why() {
 
                       {/* Content */}
                       <div className="min-w-0">
-                        <h3 className="text-sm font-bold text-[#0b223f] sm:text-base lg:text-lg">
+                        <h3 className="text-md font-bold text-[#0b223f] sm:text-base lg:text-lg">
                           {item.title}
                         </h3>
-                        <p className="mt-1.5 text-xs leading-6 text-slate-600 sm:mt-2 sm:text-sm">
+                        <p className="mt-1.5 text-sm leading-6 text-slate-600 sm:mt-2 sm:text-sm">
                           {item.description}
                         </p>
                       </div>

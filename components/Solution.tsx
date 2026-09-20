@@ -12,7 +12,7 @@ type ImagePanelProps = {
 function ImagePanel({ active }: ImagePanelProps) {
   return (
     <div className="w-full">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-white shadow-[0_20px_60px_rgba(11,34,63,0.12)]">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-[#f8faf9] shadow-[0_20px_60px_rgba(11,34,63,0.12)]">
         {data.items.map((item, index) => (
           <img
             key={item.title}
@@ -45,7 +45,7 @@ export default function Solution() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="product" className="bg-[#f7faf9] py-14 sm:py-20 lg:py-20">
+    <section id="product" className="bg-white py-14 sm:py-20 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* =========================
             SECTION HEADING
@@ -102,14 +102,14 @@ export default function Solution() {
                       isActive
                         ? `
                           border-[#128276]
-                          bg-white
+                          bg-[#f7faf9]
                           shadow-[0_10px_30px_rgba(11,34,63,0.08)]
                         `
                         : `
                           border-transparent
                           bg-transparent
                           hover:border-[#128276]/40
-                          hover:bg-white/70
+                          hover:bg-[#f8faf9]/70
                         `
                     }
                   `}
@@ -171,14 +171,14 @@ export default function Solution() {
                   {/* =========================
                       BOTTOM IMAGE (SMALL SCREENS ONLY)
                   ========================== */}
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-100 bg-white lg:hidden">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-100 bg-[#f8faf9] lg:hidden">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="
                         h-full
                         w-full
-                        object-cover
+                        object-fit
                       "
                     />
                   </div>
