@@ -42,7 +42,7 @@ export default function Navbar() {
             className="h-10 w-10 object-contain sm:h-12 sm:w-12"
           />
           <span className="min-w-0">
-            <span className="block text-lg font-extrabold leading-none tracking-tight text-[#0B1F3A] sm:text-[25px]">
+            <span className="block text-[20px] font-extrabold leading-none tracking-tight text-[#0B1F3A] sm:text-[25px]">
               Labour<span className="text-[#0F7A6C]">Flow</span>
             </span>
             <span className="mt-1 block text-[7px] font-bold tracking-[0.2em] text-[#0B1F3A] sm:text-[9px]">
@@ -52,7 +52,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex lg:gap-8">
+        <nav className="hidden items-center gap-6 lg:flex lg:gap-8">
           <a
             href="#modules"
             className="text-sm font-semibold text-slate-600 transition hover:text-[#128276]"
@@ -100,7 +100,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 p-2 text-[#0b223f] transition hover:bg-slate-50 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 p-2 text-[#0b223f] transition hover:bg-slate-50 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -113,7 +113,7 @@ export default function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="absolute left-0 right-0 top-full border-t border-slate-200 bg-white px-4 py-4 shadow-lg sm:px-6 md:hidden"
+          className="absolute left-0 right-0 top-full border-t border-slate-200 bg-white px-4 py-4 shadow-lg sm:px-6 lg:hidden"
         >
           <div className="flex flex-col gap-1">
             <a
