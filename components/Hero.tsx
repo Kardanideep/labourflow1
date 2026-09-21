@@ -57,7 +57,7 @@ export default function Hero() {
           </div>
 
           {/* Supporting points */}
-          <div className="mt-8 grid grid-cols-2 gap-3 border-t border-slate-200/80 pt-6 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:max-w-2xl">
+          {/* <div className="mt-8 grid grid-cols-2 gap-3 border-t border-slate-200/80 pt-6 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:max-w-2xl">
             <div className="flex items-center justify-center gap-2.5 text-left sm:flex-col sm:items-center sm:gap-2 lg:flex-row lg:items-center lg:gap-2">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EAF7F4] text-[#128276]">
                 <Icon name="building" />
@@ -90,11 +90,11 @@ export default function Hero() {
                 statutory work
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ---------- RIGHT COLUMN ---------- */}
-        <div className="flex items-center justify-center px-2 sm:px-4 lg:px-0">
+        <div className="flex h-full items-center justify-center px-2 sm:px-4 lg:px-0 ">
           <HeroVisual />
         </div>
       </div>

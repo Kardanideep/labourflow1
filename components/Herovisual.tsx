@@ -1,443 +1,680 @@
 // components/HeroVisual.tsx
-// LabourFlow hero — Before/After + Timeline.
-// Floating chips hidden below lg. Bottom footer always visible.
+// LabourFlow hero — simple Before → After transformation.
+// Before = scattered floating tools.
+// After = one clean connected LabourFlow workspace.
+// Responsive: stacked on mobile (Before → After), side-by-side on md+.
 
-const OLD_TOOLS = [
+const BEFORE_TOOLS = [
   {
-    label: "Excel sheets",
-    cls: "bg-emerald-50 text-emerald-800 ring-emerald-200",
-    rot: "-rotate-3",
+    label: "Excel",
+    icon: "▦",
+    tone: "bg-emerald-50 text-emerald-800 ring-emerald-200",
   },
   {
     label: "WhatsApp",
-    cls: "bg-emerald-50 text-emerald-800 ring-emerald-200",
-    rot: "rotate-2",
+    icon: "◌",
+    tone: "bg-[#F1FFF7] text-[#16855B] ring-emerald-200",
   },
   {
     label: "Email",
-    cls: "bg-rose-50 text-rose-700 ring-rose-200",
-    rot: "-rotate-2",
+    icon: "✉",
+    tone: "bg-rose-50 text-rose-700 ring-rose-200",
   },
   {
-    label: "Govt portals",
-    cls: "bg-sky-50 text-sky-800 ring-sky-200",
-    rot: "rotate-3",
+    label: "Govt Portal",
+    icon: "⌂",
+    tone: "bg-sky-50 text-sky-800 ring-sky-200",
   },
   {
-    label: "Physical files",
-    cls: "bg-violet-50 text-violet-800 ring-violet-200",
-    rot: "-rotate-1",
+    label: "Physical Files",
+    icon: "▤",
+    tone: "bg-violet-50 text-violet-800 ring-violet-200",
   },
 ];
 
-const NEW_MODULES = [
-  "Clients",
-  "Compliance",
-  "Payroll",
-  "Documents",
-  "Notices",
-  "Portal",
+const AFTER_ITEMS = [
+  { label: "Compliance", icon: "✓", tone: "bg-[#DFF4EF] text-[#128276]" },
+  { label: "Payroll", icon: "₹", tone: "bg-slate-100 text-[#0B2240]" },
+  { label: "Documents", icon: "□", tone: "bg-violet-50 text-violet-600" },
+  { label: "Deadlines", icon: "!", tone: "bg-amber-50 text-amber-600" },
 ];
-
-const DAY: Array<{
-  time: string;
-  text: string;
-  tone: "start" | "done" | "soon" | "ai" | "end";
-}> = [
-  {
-    time: "9:00",
-    text: "Dashboard — clients & compliance at a glance",
-    tone: "start",
-  },
-  {
-    time: "9:30",
-    text: "PF ECR prepared from payroll data",
-    tone: "done",
-  },
-  {
-    time: "10:30",
-    text: "Licence renewal — 12 days remaining",
-    tone: "soon",
-  },
-  {
-    time: "12:00",
-    text: "Government notice ready for review",
-    tone: "ai",
-  },
-  {
-    time: "2:00",
-    text: "Payroll completed · payslips generated",
-    tone: "done",
-  },
-  {
-    time: "6:00",
-    text: "Tasks reviewed · deadlines tracked",
-    tone: "end",
-  },
-];
-
-const TONE: Record<string, { dot: string; text: string; badge?: string }> = {
-  start: {
-    dot: "bg-[#0B2240]",
-    text: "text-[#0B2240]",
-  },
-  done: {
-    dot: "bg-[#128276]",
-    text: "text-[#0b4d44]",
-  },
-  soon: {
-    dot: "bg-amber-500",
-    text: "text-amber-700",
-  },
-  ai: {
-    dot: "bg-[#8b5cf6]",
-    text: "text-[#6d28d9]",
-    badge: "AI",
-  },
-  end: {
-    dot: "bg-[#0B2240]",
-    text: "text-[#0B2240]",
-  },
-};
 
 export default function HeroVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-[520px]">
+    <div className="relative mx-auto w-full max-w-[650px]">
       <style>{`
         @media (prefers-reduced-motion: no-preference) {
-          .lf-in {
-            animation: lf-in 550ms cubic-bezier(.2,.8,.2,1) both;
-          }
-
-          .lf-p {
-            animation: lf-p 2.6s ease-in-out infinite;
-          }
-
           .lf-float {
-            animation: lf-float 6s ease-in-out infinite;
+            animation: lf-float 4.5s ease-in-out infinite;
           }
 
-          .lf-float-2 {
-            animation: lf-float 7s ease-in-out infinite;
-            animation-delay: 1s;
+          .lf-float-delay-1 { animation-delay: .35s; }
+          .lf-float-delay-2 { animation-delay: .7s; }
+          .lf-float-delay-3 { animation-delay: 1.05s; }
+          .lf-float-delay-4 { animation-delay: 1.4s; }
+
+          .lf-arrow {
+            animation: lf-arrow 2s ease-in-out infinite;
           }
 
-          .lf-float-3 {
-            animation: lf-float 8s ease-in-out infinite;
-            animation-delay: 2s;
-          }
-        }
-
-        @keyframes lf-in {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
+          .lf-dot {
+            animation: lf-dot 2s ease-in-out infinite;
           }
 
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes lf-p {
-          0%, 100% {
-            opacity: .35;
+          .lf-pulse-ring {
+            animation: lf-pulse-ring 2.6s ease-out infinite;
           }
 
-          50% {
-            opacity: 1;
+          .lf-pulse-ring-delay {
+            animation-delay: 1.3s;
+          }
+
+          .lf-flow {
+            stroke-dasharray: 4 6;
+            animation: lf-flow 1.6s linear infinite;
+          }
+
+          .lf-flow-branch {
+            stroke-dasharray: 3 5;
+            animation: lf-flow 1.6s linear infinite;
+          }
+
+          .lf-hub-pulse {
+            animation: lf-hub-pulse 1.6s ease-in-out infinite;
+          }
+
+          .lf-connect-arrow {
+            animation: lf-connect-arrow 1.8s ease-in-out infinite;
           }
         }
 
         @keyframes lf-float {
-          0%, 100% {
-            transform: translateY(0);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
 
-          50% {
-            transform: translateY(-6px);
+        @keyframes lf-arrow {
+          0%, 100% { transform: translateX(0); opacity: .65; }
+          50% { transform: translateX(5px); opacity: 1; }
+        }
+
+        @keyframes lf-dot {
+          0%, 100% { opacity: .35; }
+          50% { opacity: 1; }
+        }
+
+        @keyframes lf-pulse-ring {
+          0% { transform: scale(.7); opacity: .55; }
+          100% { transform: scale(1.9); opacity: 0; }
+        }
+
+        @keyframes lf-flow {
+          to { stroke-dashoffset: -20; }
+        }
+
+        @keyframes lf-hub-pulse {
+          0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(88, 185, 169, .45);
           }
+          50% {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 6px rgba(88, 185, 169, 0);
+          }
+        }
+
+        @keyframes lf-connect-arrow {
+          0%, 100% { transform: translateX(-4px); opacity: .5; }
+          50% { transform: translateX(4px); opacity: 1; }
         }
       `}</style>
 
-      {/* =========================================================
-          FLOATING CHIPS
-          ========================================================= */}
+      {/* Main transformation area */}
+      <div className="relative overflow-hidden rounded-[2rem] bg-[#F7FAFA] p-4 shadow-[0_35px_90px_-40px_rgba(11,34,64,.35)] ring-1 ring-slate-200/80 sm:p-7">
+        {/* subtle background decoration */}
+        <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[#DFF4EF]/70 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-28 -right-24 h-64 w-64 rounded-full bg-[#E9EEF7]/70 blur-3xl" />
 
-    {/* Top-left — Compliance */}
-<div
-  className="
-    lf-float absolute z-20 flex items-center gap-1.5 rounded-xl
-    bg-white/70 backdrop-blur-md
-    px-2 py-1 shadow-[0_10px_30px_-12px_rgba(11,34,64,0.3)] ring-1 ring-white/60
-    -left-2 top-30
-    sm:-left-4 sm:top-60 sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2 sm:shadow-[0_15px_40px_-15px_rgba(11,34,64,0.35)]
-    lg:-left-6 lg:top-60
-  "
->
-  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#DFF4EF] text-[#0B6B5D] sm:h-6 sm:w-6">
-    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:h-3 sm:w-3">
-      <path d="M3.5 8.5l3 3 6-7" />
-    </svg>
-  </span>
-  <div className="min-w-0">
-    <p className="text-[8px] font-bold uppercase tracking-wider text-slate-500 sm:text-[9px]">Compliance</p>
-    <p className="text-[10px] font-extrabold leading-tight text-[#0B2240] sm:text-[11px]">Deadline tracked</p>
-  </div>
-</div>
+        {/* ============ MOBILE LAYOUT (stacked) ============ */}
+        <div className="relative flex flex-col gap-6 md:hidden">
+          {/* BEFORE block */}
+          <div className="relative">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-400">
+                  Before
+                </p>
+                <p className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-bold text-[#0B2240] shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                  Scattered work
+                </p>
+              </div>
+            </div>
 
-{/* Top-right — AI */}
-<div
-  className="
-    lf-float-2 absolute z-20 flex items-center gap-1.5 rounded-xl
-    bg-white/70 backdrop-blur-md
-    px-2 py-1 shadow-[0_10px_30px_-12px_rgba(11,34,64,0.3)] ring-1 ring-white/60
-    -right-2 top-60
-    sm:-right-4 sm:top-8 sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2 sm:shadow-[0_15px_40px_-15px_rgba(11,34,64,0.35)]
-    lg:-right-6 lg:top-10
-  "
->
-  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#ede9fe] text-[#7c3aed] sm:h-6 sm:w-6">
-    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="sm:h-3 sm:w-3">
-      <rect x="3" y="5.5" width="10" height="7.5" rx="1.6" />
-      <path d="M8 2.5v3M5.5 9h.01M10.5 9h.01M6 11h4" />
-    </svg>
-  </span>
-  <div className="min-w-0">
-    <p className="text-[8px] font-bold uppercase tracking-wider text-slate-500 sm:text-[9px]">AI</p>
-    <p className="text-[10px] font-extrabold leading-tight text-[#0B2240] sm:text-[11px]">Notice assistance</p>
-  </div>
-</div>
+            {/* Before cards — grid on mobile */}
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {BEFORE_TOOLS.map((tool, index) => (
+                <div
+                  key={tool.label}
+                  className={`lf-float lf-float-delay-${index} ${
+                    index % 2 === 0 ? "-rotate-2" : "rotate-2"
+                  }`}
+                >
+                  <div
+                    className={`flex items-center gap-2 rounded-xl px-3 py-2.5 text-[10px] font-bold shadow-[0_12px_30px_-15px_rgba(11,34,64,.45)] ring-1 backdrop-blur-sm sm:text-[11px] ${tool.tone}`}
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-white/80 text-[11px] shadow-sm">
+                      {tool.icon}
+                    </span>
+                    <span className="truncate">{tool.label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-{/* Bottom-left — Payroll */}
-<div
-  className="
-    lf-float-3 absolute z-20 flex items-center gap-1.5 rounded-xl
-    bg-white/70 backdrop-blur-md
-    px-2 py-1 shadow-[0_10px_30px_-12px_rgba(11,34,64,0.3)] ring-1 ring-white/60
-    -left-2 bottom-15
-    sm:-left-4 sm:bottom-15 sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2 sm:shadow-[0_15px_40px_-15px_rgba(11,34,64,0.35)]
-    lg:-left-6 lg:bottom-15
-  "
->
-  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#DFF4EF] text-[#0B6B5D] sm:h-6 sm:w-6">
-    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="sm:h-3 sm:w-3">
-      <rect x="1.5" y="4" width="13" height="8.5" rx="1.6" />
-      <circle cx="8" cy="8.2" r="2" />
-    </svg>
-  </span>
-  <div className="min-w-0">
-    <p className="text-[8px] font-bold uppercase tracking-wider text-slate-500 sm:text-[9px]">Payroll</p>
-    <p className="text-[10px] font-extrabold leading-tight text-[#0B2240] sm:text-[11px]">Payslips generated</p>
-  </div>
-</div>
+          {/* Connector — Disconnected → Connected (mobile) */}
+          <div className="flex items-center justify-between gap-2">
+            <span className="flex items-center gap-1.5 rounded-full border border-rose-100 bg-white px-2.5 py-1 text-[10px] font-bold text-rose-500 shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)]">
+              <span className="lf-dot h-1.5 w-1.5 rounded-full bg-rose-400" />
+              Disconnected
+            </span>
 
-{/* Bottom-right — WhatsApp */}
-<div
-  className="
-    lf-float absolute z-20 flex items-center gap-1.5 rounded-xl
-    bg-white/70 backdrop-blur-md
-    px-2 py-1 shadow-[0_10px_30px_-12px_rgba(11,34,64,0.3)] ring-1 ring-white/60
-    -right-2 bottom-32
-    sm:-right-4 sm:bottom-40 sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2 sm:shadow-[0_15px_40px_-15px_rgba(11,34,64,0.35)]
-    lg:-right-6 lg:bottom-1/3
-  "
->
-  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white sm:h-6 sm:w-6">
-    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="sm:h-3 sm:w-3">
-      <path d="M2.5 13.5l.9-3A5.6 5.6 0 1 1 5.6 12.6l-3.1.9z" />
-    </svg>
-  </span>
-  <div className="min-w-0">
-    <p className="text-[8px] font-bold uppercase tracking-wider text-slate-500 sm:text-[9px]">WhatsApp</p>
-    <p className="text-[10px] font-extrabold leading-tight text-[#0B2240] sm:text-[11px]">Client reminder</p>
-  </div>
-</div>
+            <span className="relative mx-1 flex flex-1 items-center">
+              <span className="h-px w-full bg-gradient-to-r from-rose-200 via-slate-200 to-[#CDEBE5]" />
+              <span className="lf-connect-arrow absolute left-1/2 flex -translate-x-1/2 items-center text-[#128276]">
+                <svg
+                  width="22"
+                  height="10"
+                  viewBox="0 0 26 10"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 5 H20 M16 1.5 L20 5 L16 8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </span>
 
-      {/* =========================================================
-          MAIN PLATE
-          ========================================================= */}
+            <span className="flex items-center gap-1.5 rounded-full border border-[#CDEBE5] bg-white px-2.5 py-1 text-[10px] font-bold text-[#128276] shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)]">
+              <span className="lf-dot h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+              Connected
+            </span>
+          </div>
 
-      <div className="rounded-[1.75rem] bg-gradient-to-b from-white to-[#EEF5F3] p-5 shadow-[0_30px_80px_-30px_rgba(11,34,64,0.35)] ring-1 ring-slate-200/80 sm:p-6">
-        {/* BEFORE → AFTER */}
-        <div className="flex items-center justify-between">
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#128276]">
-            Before → After
-          </p>
+          {/* AFTER block */}
+          <div className="relative">
+            <div className="flex items-center justify-between">
+              <div className="text-right w-full">
+                <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#128276]">
+                  After
+                </p>
+                <p className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-[#CDEBE5] bg-white px-2.5 py-1 text-[10px] font-bold text-[#0B2240] shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+                  One connected workspace
+                </p>
+              </div>
+            </div>
 
-          <span className="rounded-full bg-[#EAF7F4] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#128276]">
-            The LabourFlow way
-          </span>
+            <div className="mt-3 flex flex-col items-center">
+              {/* Client card */}
+              <div className="w-full max-w-[320px]">
+                <div className="overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_-22px_rgba(11,34,64,.4)] ring-1 ring-slate-200">
+                  <div className="flex items-center gap-2.5 p-3.5">
+                    <div className="relative shrink-0">
+                      <span className="lf-pulse-ring absolute inset-0 rounded-xl bg-[#58B9A9]/40" />
+                      <span className="lf-pulse-ring lf-pulse-ring-delay absolute inset-0 rounded-xl bg-[#58B9A9]/30" />
+
+                      <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-[#DFF4EF] text-[12px] font-bold text-[#128276]">
+                        AC
+                      </div>
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[12px] font-bold text-[#0B2240]">
+                        ABC Industries
+                      </p>
+                      <p className="mt-0.5 truncate text-[10px] text-slate-700">
+                        Client workspace
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 divide-x divide-slate-100 border-t border-slate-100 bg-slate-50/60">
+                    <div className="px-2 py-2.5 text-center">
+                      <p className="text-[12px] font-bold text-[#0B2240]">12</p>
+                      <p className="mt-0.5 text-[9px] font-semibold uppercase tracking-wide text-slate-600">
+                        Tasks
+                      </p>
+                    </div>
+                    <div className="px-2 py-2.5 text-center">
+                      <p className="text-[12px] font-bold text-[#128276]">
+                        100%
+                      </p>
+                      <p className="mt-0.5 text-[9px] font-semibold uppercase tracking-wide text-slate-600">
+                        Compliant
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t border-slate-100 px-3.5 py-2">
+                    <span className="text-[9px] text-slate-600">
+                      Compliance status
+                    </span>
+                    <span className="flex items-center gap-1 text-[9px] font-semibold text-[#128276]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+                      Up to date
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* ===== Tree connector + module grid (mobile) — fully aligned ===== */}
+              <div className="relative flex w-full max-w-[340px] flex-col items-center">
+                {/* Single animated SVG: trunk + hub + branch bar + drops */}
+                <svg
+                  className="pointer-events-none h-[84px] w-[74%]"
+                  viewBox="0 0 200 84"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  {/* --- static base tree --- */}
+                  {/* trunk: card bottom → hub */}
+                  <line
+                    x1="100"
+                    y1="0"
+                    x2="100"
+                    y2="32"
+                    stroke="#CDEBE5"
+                    strokeWidth="1"
+                  />
+                  {/* hub ring (static) */}
+                  <circle
+                    cx="100"
+                    cy="32"
+                    r="5"
+                    fill="#ffffff"
+                    stroke="#CDEBE5"
+                    strokeWidth="1.5"
+                  />
+                  <circle cx="100" cy="32" r="2.5" fill="#58B9A9" />
+                  {/* trunk: hub → branch bar */}
+                  <line
+                    x1="100"
+                    y1="37"
+                    x2="100"
+                    y2="50"
+                    stroke="#CDEBE5"
+                    strokeWidth="1"
+                  />
+                  {/* branch bar */}
+                  <line
+                    x1="6"
+                    y1="50"
+                    x2="194"
+                    y2="50"
+                    stroke="#CDEBE5"
+                    strokeWidth="1"
+                  />
+                  {/* drops */}
+                  <path
+                    d="M6 50 V84"
+                    stroke="#CDEBE5"
+                    strokeWidth="1"
+                    fill="none"
+                  />
+                  <path
+                    d="M194 50 V84"
+                    stroke="#CDEBE5"
+                    strokeWidth="1"
+                    fill="none"
+                  />
+
+                  {/* --- animated overlays --- */}
+                  {/* animated trunk (card → hub) */}
+                  <line
+                    className="lf-flow"
+                    x1="100"
+                    y1="0"
+                    x2="100"
+                    y2="32"
+                    stroke="#58B9A9"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                  />
+                  {/* animated trunk (hub → bar) */}
+                  <line
+                    className="lf-flow"
+                    x1="100"
+                    y1="37"
+                    x2="100"
+                    y2="50"
+                    stroke="#58B9A9"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                  />
+                  {/* animated left branch */}
+                  <path
+                    className="lf-flow-branch"
+                    style={{ animationDelay: "0s" }}
+                    d="M100 50 H6 V84"
+                    stroke="#58B9A9"
+                    strokeWidth="1.4"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                  {/* animated right branch */}
+                  <path
+                    className="lf-flow-branch"
+                    style={{ animationDelay: ".5s" }}
+                    d="M100 50 H194 V84"
+                    stroke="#58B9A9"
+                    strokeWidth="1.4"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                </svg>
+
+                {/* pulsing hub halo — pinned exactly over SVG hub (cy=32 of 84) */}
+                <span
+                  className="lf-hub-pulse pointer-events-none absolute left-1/2 z-10 flex h-3.5 w-3.5 -translate-x-1/2 items-center justify-center rounded-full"
+                  style={{ top: "calc(32 / 84 * 84px - 7px)" }}
+                >
+                  <span className="lf-dot h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+                </span>
+
+                {/* module grid — starts immediately below the drops */}
+                <div className="grid w-full grid-cols-2 gap-2">
+                  {AFTER_ITEMS.map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-2 rounded-xl bg-white px-2.5 py-2.5 shadow-[0_12px_25px_-18px_rgba(11,34,64,.4)] ring-1 ring-slate-200"
+                    >
+                      <span
+                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-[11px] font-bold ${item.tone}`}
+                      >
+                        {item.icon}
+                      </span>
+                      <span className="truncate text-[11px] font-semibold text-[#0B2240]">
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-4 grid grid-cols-1 items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
-          {/* OLD WAY */}
-          <div className="flex flex-wrap justify-center gap-1.5 sm:flex-col sm:gap-2">
-            {OLD_TOOLS.map((o, i) => (
-              <span
-                key={o.label}
-                className={`lf-in inline-flex rounded-lg px-2.5 py-1.5 text-[11px] font-semibold ring-1 sm:text-xs ${o.cls} ${o.rot}`}
-                style={{ animationDelay: `${i * 70}ms` }}
+        {/* ============ DESKTOP LAYOUT (md+) — unchanged ============ */}
+        <div className="relative hidden h-[460px] md:block">
+          {/* Labels */}
+          <div className="absolute left-[4%] top-0">
+            <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-400">
+              Before
+            </p>
+            <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-bold text-[#0B2240] shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)] sm:text-[11px]">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+              Scattered work
+            </p>
+          </div>
+
+          <div className="absolute right-[5%] top-0 text-right">
+            <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#128276]">
+              After
+            </p>
+            <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-[#CDEBE5] bg-white px-2.5 py-1 text-[10px] font-bold text-[#0B2240] shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)] sm:text-[11px]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+              One connected workspace
+            </p>
+          </div>
+
+          {/* BEFORE — floating cards (desktop) */}
+          <div className="absolute inset-0 right-[1%] top-[8%] bottom-[8%] sm:right-[1%]">
+            {[
+              {
+                ...BEFORE_TOOLS[0],
+                position: "left-[4%] top-[10%]",
+                rotate: "-rotate-3",
+              },
+              {
+                ...BEFORE_TOOLS[1],
+                position: "left-[18%] top-[28%]",
+                rotate: "rotate-2",
+              },
+              {
+                ...BEFORE_TOOLS[2],
+                position: "left-[2%] top-[46%]",
+                rotate: "-rotate-2",
+              },
+              {
+                ...BEFORE_TOOLS[3],
+                position: "left-[20%] top-[63%]",
+                rotate: "rotate-2",
+              },
+              {
+                ...BEFORE_TOOLS[4],
+                position: "left-[5%] bottom-[7%]",
+                rotate: "-rotate-3",
+              },
+            ].map((tool, index) => (
+              <div
+                key={tool.label}
+                className={`lf-float lf-float-delay-${index} absolute ${tool.position} ${tool.rotate} z-10`}
               >
-                {o.label}
-              </span>
+                <div
+                  className={`flex min-w-[104px] items-center gap-2 rounded-xl px-3 py-2.5 text-[10px] font-bold shadow-[0_12px_30px_-15px_rgba(11,34,64,.45)] ring-1 backdrop-blur-sm sm:min-w-[122px] sm:px-3.5 sm:py-3 sm:text-[11px] ${tool.tone}`}
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/80 text-xs shadow-sm">
+                    {tool.icon}
+                  </span>
+                  <span>{tool.label}</span>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* ARROW */}
-          <div className="flex items-center justify-center">
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#128276"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="rotate-90 sm:rotate-0"
-              aria-hidden="true"
-            >
-              <path d="M4 12h14M13 7l5 5-5 5" />
-            </svg>
-          </div>
-
-          {/* LABOURFLOW */}
-          <div
-            className="lf-in relative rounded-2xl bg-[#0B2240] p-4 shadow-[0_20px_50px_-20px_rgba(11,34,64,0.5)]"
-            style={{ animationDelay: "450ms" }}
-          >
-            <div className="flex items-center gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo.png"
-                alt="LabourFlow"
-                width={22}
-                height={22}
-                className="h-5 w-5 rounded-md bg-white/95 p-0.5"
-              />
-
-              <span className="text-sm font-bold text-white">LabourFlow</span>
+          {/* CENTER TRANSFORMATION */}
+          {/* <div className="absolute lg:left-60 top-[45%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center sm:left-65">
+            <div className="lf-arrow flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg font-bold text-[#128276] shadow-[0_15px_35px_-18px_rgba(11,34,64,.5)] ring-1 ring-[#CDEBE5]">
+              →
             </div>
-
-            <div className="mt-3 flex flex-wrap gap-1">
-              {NEW_MODULES.map((m) => (
-                <span
-                  key={m}
-                  className="rounded-md bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold text-[#8ed6ca] ring-1 ring-white/10 sm:px-2 sm:py-1 sm:text-[10px]"
-                >
-                  {m}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-3 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#8ed6ca]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#8ed6ca]" />
-              One connected workspace
-            </div>
-          </div>
-        </div>
-
-        {/* DIVIDER */}
-        <div className="my-6 flex items-center gap-3">
-          <span className="h-px flex-1 bg-slate-200" />
-
-          <span className="text-[9px] font-bold uppercase tracking-[0.24em] text-slate-400">
-            A day with LabourFlow
-          </span>
-
-          <span className="h-px flex-1 bg-slate-200" />
-        </div>
-
-        {/* TIMELINE */}
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#128276]">
-              Labour Consultancy
-            </p>
-
-            <p className="mt-0.5 text-[11px] text-slate-500">
-              One connected workflow
-            </p>
-          </div>
-
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF7F4] px-2.5 py-1 text-[10px] font-bold text-[#128276]">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="lf-p absolute inline-flex h-full w-full rounded-full bg-[#128276]" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#128276]" />
+            <span className="mt-2 rounded-full bg-white/90 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-slate-400 shadow-sm ring-1 ring-slate-200/70">
+              Simplify
             </span>
-            Connected
-          </span>
-        </div>
+          </div> */}
 
-        {/* TIMELINE CONTENT */}
-        <div className="relative mt-4 pl-1">
-          <div className="absolute left-[46px] top-2 bottom-2 w-px bg-gradient-to-b from-slate-200 via-[#128276]/40 to-slate-200 sm:left-[50px]" />
+          {/* AFTER — desktop */}
+          <div className="absolute right-[2%] top-[15%] w-[48%] sm:right-[1%] sm:w-[46%]">
+            <div className="relative h-[330px] sm:h-[360px]">
+              {/* Connection lines */}
+              <svg
+                className="pointer-events-none absolute inset-0 h-full w-full"
+                viewBox="0 0 200 350"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <line
+                  x1="100"
+                  y1="140"
+                  x2="100"
+                  y2="200"
+                  stroke="#CDEBE5"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="30"
+                  y1="200"
+                  x2="170"
+                  y2="200"
+                  stroke="#CDEBE5"
+                  strokeWidth="1"
+                />
+                <path
+                  d="M30 200 V244"
+                  stroke="#CDEBE5"
+                  strokeWidth="1"
+                  fill="none"
+                />
+                <path
+                  d="M170 200 V244"
+                  stroke="#CDEBE5"
+                  strokeWidth="1"
+                  fill="none"
+                />
 
-          <ul className="space-y-3.5">
-            {DAY.map((d, i) => {
-              const t = TONE[d.tone];
+                <line
+                  className="lf-flow"
+                  x1="100"
+                  y1="140"
+                  x2="100"
+                  y2="200"
+                  stroke="#58B9A9"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                />
+                <path
+                  className="lf-flow-branch"
+                  style={{ animationDelay: "0s" }}
+                  d="M100 200 H30 V244"
+                  stroke="#58B9A9"
+                  strokeWidth="1.2"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <path
+                  className="lf-flow-branch"
+                  style={{ animationDelay: ".5s" }}
+                  d="M100 200 H170 V244"
+                  stroke="#58B9A9"
+                  strokeWidth="1.2"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </svg>
 
-              return (
-                <li
-                  key={d.time}
-                  className="lf-in relative flex items-start gap-3"
-                  style={{
-                    animationDelay: `${650 + i * 100}ms`,
-                  }}
-                >
-                  <span className="w-10 shrink-0 pt-0.5 text-right text-[10px] font-bold tabular-nums text-slate-400 sm:text-xs">
-                    {d.time}
-                  </span>
+              {/* Client card */}
+              <div className="absolute left-1/2 top-0 z-20 w-[92%] -translate-x-1/2">
+                <div className="overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_-22px_rgba(11,34,64,.4)] ring-1 ring-slate-200">
+                  <div className="flex items-center gap-2.5 p-3.5 sm:p-4">
+                    <div className="relative shrink-0">
+                      <span className="lf-pulse-ring absolute inset-0 rounded-xl bg-[#58B9A9]/40" />
+                      <span className="lf-pulse-ring lf-pulse-ring-delay absolute inset-0 rounded-xl bg-[#58B9A9]/30" />
 
-                  <span className="relative mt-1 flex h-3 w-3 shrink-0 items-center justify-center">
-                    <span
-                      className={`absolute inline-flex h-full w-full rounded-full ${t.dot} ${
-                        i === 3 ? "lf-p" : ""
-                      }`}
-                    />
+                      <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-[#DFF4EF] text-[12px] font-bold text-[#128276]">
+                        AC
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[11px] font-bold text-[#0B2240] sm:text-[12px]">
+                        ABC Industries
+                      </p>
+                      <p className="mt-0.5 truncate text-[10px] text-slate-700">
+                        Client workspace
+                      </p>
+                    </div>
+                  </div>
 
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
-                  </span>
+                  <div className="grid grid-cols-2 divide-x divide-slate-100 border-t border-slate-100 bg-slate-50/60">
+                    <div className="px-2 py-2.5 text-center">
+                      <p className="text-[11px] font-bold text-[#0B2240]">12</p>
+                      <p className="mt-0.5 text-[9px] font-semibold uppercase tracking-wide text-slate-600">
+                        Tasks
+                      </p>
+                    </div>
+                    <div className="px-2 py-2.5 text-center">
+                      <p className="text-[11px] font-bold text-[#128276]">
+                        100%
+                      </p>
+                      <p className="mt-0.5 text-[9px] font-semibold uppercase tracking-wide text-slate-600">
+                        Compliant
+                      </p>
+                    </div>
+                  </div>
 
-                  <p
-                    className={`pt-0.5 text-[12px] font-medium leading-snug sm:text-[13px] ${t.text}`}
-                  >
-                    {d.text}
+                  <div className="flex items-center justify-between border-t border-slate-100 px-3.5 py-2 sm:px-4">
+                    <span className="text-[9px] text-slate-600">
+                      Compliance status
+                    </span>
+                    <span className="flex items-center gap-1 text-[8px] font-semibold text-[#128276]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+                      Up to date
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-                    {t.badge && (
-                      <span className="ml-1.5 inline-flex items-center rounded-full bg-[#ede9fe] px-1.5 py-0.5 align-middle text-[8px] font-bold uppercase tracking-wider text-[#7c3aed]">
-                        {t.badge}
+              {/* Hub node */}
+              <div className="absolute left-1/2 top-[200px] z-20 -translate-x-1/2 -translate-y-1/2">
+                <span className="lf-hub-pulse flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white ring-2 ring-[#CDEBE5]">
+                  <span className="lf-dot h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+                </span>
+              </div>
+
+              {/* Module grid */}
+              <div className="absolute left-1/2 top-[244px] z-20 w-full -translate-x-1/2">
+                <div className="grid grid-cols-2 gap-2">
+                  {AFTER_ITEMS.map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-2 rounded-xl bg-white px-2.5 py-2.5 shadow-[0_12px_25px_-18px_rgba(11,34,64,.4)] ring-1 ring-slate-200 transition-transform hover:-translate-y-0.5"
+                    >
+                      <span
+                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-[11px] font-bold ${item.tone}`}
+                      >
+                        {item.icon}
                       </span>
-                    )}
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        {/* FOOTER */}
-        <div className="mt-5 grid grid-cols-2 gap-3 rounded-2xl bg-[#0B2240] px-4 py-3">
-          <div>
-            <p className="text-[9px] font-bold uppercase tracking-wider text-[#8ed6ca]">
-              One platform
-            </p>
-
-            <p className="mt-0.5 text-base font-extrabold leading-none text-white">
-              All client work
-            </p>
+                      <span className="truncate text-[10px] font-semibold text-[#0B2240] sm:text-[11px]">
+                        {item.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="border-l border-white/10 pl-4">
-            <p className="text-[9px] font-bold uppercase tracking-wider text-[#8ed6ca]">
-              Compliance
-            </p>
+          {/* small visual connection lines */}
+          <div className="pointer-events-none absolute left-[28%] top-[22%] hidden h-px w-[16%] rotate-[8deg] bg-gradient-to-r from-slate-300/0 via-slate-300/70 to-slate-300/0 sm:block" />
+          <div className="pointer-events-none absolute left-[28%] top-[67%] hidden h-px w-[16%] -rotate-[10deg] bg-gradient-to-r from-slate-300/0 via-slate-300/70 to-slate-300/0 sm:block" />
 
-            <p className="mt-0.5 text-base font-extrabold leading-none text-white">
-              Always visible
-            </p>
+          {/* BOTTOM — Disconnected → Connected */}
+          <div className="absolute bottom-[0%] left-1/2 z-30 flex w-[88%] -translate-x-1/2 items-center justify-between sm:w-[80%]">
+            <span className="flex items-center gap-1.5 rounded-full border border-rose-100 bg-white px-3 py-1.5 text-[10px] font-bold text-rose-500 shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)] sm:px-3.5 sm:text-[11px]">
+              <span className="lf-dot h-1.5 w-1.5 rounded-full bg-rose-400" />
+              Disconnected
+            </span>
+
+            <span className="relative mx-2 flex flex-1 items-center">
+              <span className="h-px w-full bg-gradient-to-r from-rose-200 via-slate-200 to-[#CDEBE5]" />
+              <span className="lf-connect-arrow absolute left-1/2 flex -translate-x-1/2 items-center text-[#128276]">
+                <svg
+                  width="26"
+                  height="10"
+                  viewBox="0 0 26 10"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0 5 H20 M16 1.5 L20 5 L16 8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </span>
+
+            <span className="flex items-center gap-1.5 rounded-full border border-[#CDEBE5] bg-white px-3 py-1.5 text-[10px] font-bold text-[#128276] shadow-[0_4px_12px_-6px_rgba(11,34,64,.25)] sm:px-3.5 sm:text-[11px]">
+              <span className="lf-dot h-1.5 w-1.5 rounded-full bg-[#58B9A9]" />
+              Connected
+            </span>
           </div>
         </div>
       </div>
