@@ -21,7 +21,7 @@ export default function Footer() {
 
               <div className="min-w-0 pr-1.5">
                 {/* Brand Name */}
-                <p className="text-[20px] font-extrabold tracking-tight sm:text-[24px]">
+                <p className="text-[23px] font-extrabold tracking-tight sm:text-[24px]">
                   <span className="text-[#0B1F3A]">Labour</span>
                   <span className="text-[#0F7A6C]">Flow</span>
                 </p>

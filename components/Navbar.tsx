@@ -39,10 +39,10 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="LabourFlow"
-            className="h-10 w-10 object-contain sm:h-12 sm:w-12"
+            className="h-11 w-11 object-contain sm:h-12 sm:w-12"
           />
-          <span className="min-w-0">
-            <span className="block text-[20px] font-extrabold leading-none tracking-tight text-[#0B1F3A] sm:text-[25px]">
+          <span className="min-w-0 mt-1">
+            <span className="block text-[23px] font-extrabold leading-none tracking-tight text-[#0B1F3A] sm:text-[25px]">
               Labour<span className="text-[#0F7A6C]">Flow</span>
             </span>
             <span className="mt-1 block text-[7px] font-bold tracking-[0.2em] text-[#0B1F3A] sm:text-[9px]">
