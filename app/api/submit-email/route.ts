@@ -551,9 +551,9 @@ function welcomeEmailHtml(name: string) {
           We will keep your inbox useful and occasional.
           <br />
 
-          <strong style="color:${COLORS.navy};">
+          <strong style="color:${COLORS.text};">
             Team
-            <span style="color:${COLORS.teal};">
+            <span style="color:${COLORS.text};">
               LabourFlow
             </span>
           </strong>
@@ -839,7 +839,7 @@ function emailShell(...rows: string[]) {
   style="
     margin:0;
     padding:0;
-    background:${COLORS.background};
+    background:white;
     font-family:
       -apple-system,
       BlinkMacSystemFont,
@@ -907,35 +907,52 @@ function emailShell(...rows: string[]) {
                 <!-- BRAND -->
 
                 <td>
+  <div
+    style="
+      display:flex;
+      align-items:center;
+      gap:1px;
+    "
+  >
+    <img
+      src="https://www.labourflow.in/logo.png"
+      alt="LabourFlow"
+      width="38"
+      height="38"
+      style="
+        display:block;
+        width:38px;
+        height:38px;
+        object-fit:contain;
+      "
+    />
 
-                  <span
-                    style="
-                      color:${COLORS.navy};
-                      font-size:19px;
-                      font-weight:800;
-                      letter-spacing:-.4px;
-                    "
-                  >
-                    Labour<span
-                      style="
-                        color:${COLORS.teal};
-                      "
-                    >Flow</span>
-                  </span>
+    <div>
+      <span
+        style="
+          color:${COLORS.navy};
+          font-size:24px;
+          font-weight:800;
+          letter-spacing:-.4px;
+        "
+      >
+        Labour<span style="color:${COLORS.teal};">Flow</span>
+      </span>
 
-                  <div
-                    style="
-                      margin-top:2px;
-                      color:${COLORS.muted};
-                      font-size:8px;
-                      font-weight:800;
-                      letter-spacing:1.4px;
-                    "
-                  >
-                    COMPLIANCE. SIMPLIFIED.
-                  </div>
-
-                </td>
+      <div
+        style="
+          margin-top:2px;
+          color:${COLORS.muted};
+          font-size:8px;
+          font-weight:800;
+          letter-spacing:1.4px;
+        "
+      >
+        COMPLIANCE. SIMPLIFIED.
+      </div>
+    </div>
+  </div>
+</td>
 
 
                 <!-- BRAND TAG -->
@@ -1004,7 +1021,7 @@ function emailShell(...rows: string[]) {
 
             <strong
               style="
-                color:${COLORS.muted};
+                color:${COLORS.navy};
               "
             >
               Labour<span style="color:${COLORS.teal};">

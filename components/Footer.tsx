@@ -182,7 +182,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 px-5 py-5 sm:px-8 md:px-10 lg:px-12">
-          <div className="flex flex-col gap-2 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex gap-2 text-xs text-white/35 flex-row items-center justify-between">
             <span>
               © {new Date().getFullYear()} {data.copyright}
             </span>

@@ -96,7 +96,10 @@ export default function CTA() {
       {/* =========================
           CTA SECTION
       ========================== */}
-      <section id="early-access" className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-10 md:px-8">
+      <section
+        id="early-access"
+        className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-10 md:px-8"
+      >
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-[#128276]/15 bg-[#e8f3f1] px-5 py-8 sm:rounded-[2rem] sm:px-10 sm:py-12">
           {/* Background logo */}
           <img
@@ -448,10 +451,24 @@ export default function CTA() {
 
                 <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-slate-600">
                   Thanks for your interest. We sent a confirmation to{" "}
-                  <span className="font-semibold text-[#0b223f]">{form.email}</span>{" "}
+                  <span className="font-semibold text-[#0b223f]">
+                    {form.email}
+                  </span>{" "}
                   and will keep you updated about early access.
                 </p>
 
+                <div className="mx-auto mt-4 flex max-w-sm items-start gap-3 rounded-xl border border-[#DCE9E5] bg-[#F3FAF8] px-4 py-3 text-left">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#DFF4EF] text-xs font-bold text-[#128276]">
+                    i
+                  </span>
+
+                  <p className="text-xs leading-5 text-[#0b223f]">
+                    <span className="font-bold">Check your email.</span> If you
+                    don't see it, check your <strong>Spam</strong> or{" "}
+                    <strong>Promotions</strong> folder and move it to your inbox
+                    so future LabourFlow updates are easier to find.
+                  </p>
+                </div>
                 <button
                   type="button"
                   onClick={closeModal}
