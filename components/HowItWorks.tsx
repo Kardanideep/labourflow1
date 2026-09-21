@@ -248,7 +248,7 @@ export default function HowItWorks() {
                   {/* Dynamic Preview Content */}
                   <div className="mt-0 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4">
                     {/* CURRENT STEP */}
-                    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+                    <div className="rounded-2xl hidden lg:grid sm:grid border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-bold text-slate-400 sm:text-xs">
                           CURRENT STEP
@@ -301,7 +301,7 @@ export default function HowItWorks() {
                   </div>
 
                   {/* WORKFLOW PROGRESS — shown from sm up */}
-                  <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:mt-5 sm:block sm:p-5">
+                  <div className="mt-4 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:mt-5 sm:block sm:p-5">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-[10px] font-bold text-slate-400 sm:text-xs">
                         WORKFLOW PROGRESS
