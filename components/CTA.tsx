@@ -96,7 +96,7 @@ export default function CTA() {
       {/* =========================
           CTA SECTION
       ========================== */}
-      <section id="early-access" className="px-4 py-8 sm:px-6 sm:py-10 md:px-8">
+      <section id="early-access" className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-10 md:px-8">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-[#128276]/15 bg-[#e8f3f1] px-5 py-8 sm:rounded-[2rem] sm:px-10 sm:py-12">
           {/* Background logo */}
           <img

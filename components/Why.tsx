@@ -14,7 +14,7 @@ const icons = [
 
 export default function Why() {
   return (
-    <section className="bg-white py-14 sm:py-20">
+    <section id="why-us" className="scroll-mt-10 bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="overflow-hidden rounded-[1.75rem] bg-[#0b223f] sm:rounded-[2.5rem]">
           <div className="grid lg:grid-cols-[0.85fr_1.15fr]">

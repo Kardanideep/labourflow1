@@ -6,7 +6,7 @@ export default function Modules() {
   return (
     <section
       id="modules"
-      className="relative overflow-hidden bg-[#0b223f] py-16 text-white sm:py-20 lg:py-24"
+      className="scroll-mt-10 relative overflow-hidden bg-[#0b223f] py-16 text-white sm:py-20 lg:py-24"
     >
       {/* Background decoration */}
       <div className="pointer-events-none absolute -right-32 top-20 h-72 w-72 rounded-full bg-[#128276]/15 blur-3xl sm:h-96 sm:w-96" />

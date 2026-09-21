@@ -6,7 +6,7 @@ const icons = ["users", "building", "chart", "list"];
 
 export default function Audience() {
   return (
-    <section id="who-its-for" className="bg-[#F7FAF9] py-14 sm:py-20 lg:py-20">
+    <section id="who-its-for" className="scroll-mt-10 bg-[#F7FAF9] py-14 sm:py-20 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <SectionHeading
           eyebrow={data.eyebrow}

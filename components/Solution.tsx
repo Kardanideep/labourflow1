@@ -45,7 +45,7 @@ export default function Solution() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="product" className="bg-white py-14 sm:py-20 lg:py-20">
+    <section id="product" className="scroll-mt-10 bg-white py-14 sm:py-20 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* =========================
             SECTION HEADING

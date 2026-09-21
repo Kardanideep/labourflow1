@@ -54,16 +54,34 @@ export default function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex lg:gap-8">
           <a
+            href="#modules"
+            className="text-sm font-semibold text-slate-600 transition hover:text-[#128276]"
+          >
+            Modules
+          </a>
+          <a
+            href="#problem"
+            className="text-sm font-semibold text-slate-600 transition hover:text-[#128276]"
+          >
+            Problem
+          </a>
+          <a
             href="#product"
             className="text-sm font-semibold text-slate-600 transition hover:text-[#128276]"
           >
-            Product
+            Solution
           </a>
           <a
             href="#how-it-works"
             className="text-sm font-semibold text-slate-600 transition hover:text-[#128276]"
           >
             How it works
+          </a>
+          <a
+            href="#why-us"
+            className="text-sm font-semibold text-slate-600 transition hover:text-[#128276]"
+          >
+            Why Us
           </a>
           <a
             href="#who-its-for"
@@ -100,10 +118,24 @@ export default function Navbar() {
           <div className="flex flex-col gap-1">
             <a
               onClick={() => setOpen(false)}
+              href="#modules"
+              className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
+            >
+              Modules
+            </a>
+            <a
+              onClick={() => setOpen(false)}
+              href="#problem"
+              className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
+            >
+              Problem
+            </a>
+            <a
+              onClick={() => setOpen(false)}
               href="#product"
               className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
             >
-              Product
+              Solution
             </a>
             <a
               onClick={() => setOpen(false)}
@@ -111,6 +143,13 @@ export default function Navbar() {
               className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
             >
               How it works
+            </a>
+            <a
+              onClick={() => setOpen(false)}
+              href="#why-us"
+              className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f7faf9] hover:text-[#128276]"
+            >
+              Why Us
             </a>
             <a
               onClick={() => setOpen(false)}

@@ -67,7 +67,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <section id="how-it-works" className="py-14 sm:py-20 lg:py-20">
+    <section id="how-it-works" className="scroll-mt-10 py-14 sm:py-20 lg:py-20">
       <div
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}

@@ -80,10 +80,24 @@ export default function Footer() {
 
             <div className="mt-4 space-y-3 sm:mt-5">
               <a
+                href="#modules"
+                className="block text-sm text-white/60 transition hover:text-white"
+              >
+                Modules
+              </a>
+
+              <a
+                href="#problem"
+                className="block text-sm text-white/60 transition hover:text-white"
+              >
+                Problem
+              </a>
+
+              <a
                 href="#product"
                 className="block text-sm text-white/60 transition hover:text-white"
               >
-                Platform
+                Solution
               </a>
 
               <a
@@ -94,17 +108,17 @@ export default function Footer() {
               </a>
 
               <a
+                href="#why-us"
+                className="block text-sm text-white/60 transition hover:text-white"
+              >
+                Why Us
+              </a>
+
+              <a
                 href="#who-its-for"
                 className="block text-sm text-white/60 transition hover:text-white"
               >
                 Who It's For
-              </a>
-
-              <a
-                href="#early-access"
-                className="block text-sm text-white/60 transition hover:text-white"
-              >
-                Get Launch Updates
               </a>
             </div>
           </div>
