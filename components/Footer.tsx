@@ -145,20 +145,7 @@ export default function Footer() {
                 labourflow01@gmail.com
               </a>
 
-              <a
-                href="tel:+919727927266"
-                className="
-                  block rounded-xl border border-white/10
-                  bg-white/5 px-4 py-3
-                  text-sm text-white/70
-                  transition
-                  hover:border-white/20
-                  hover:bg-white/10
-                  hover:text-white
-                "
-              >
-                +91 97279 27266
-              </a>
+
             </div>
 
             <a
